@@ -1,0 +1,5 @@
+.Content {
+  padding: 20px 0;
+  margin-bottom: $boxmodelSingleValue + 40px;
+  @include flex_setting(row, center, flex-start, 100px, wrap);
+}

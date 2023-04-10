@@ -1,0 +1,43 @@
+.Navbar {
+  padding: 10px 20px;
+  @include flex_setting(row, space-between, center);
+  background-color: $mainBGcolor;
+  color: $textColor;
+  box-shadow: 3px 3px 3px solid $shadowBlack;
+  .name_logoContainer {
+    @include flex_setting(row, flex-start, center);
+    .logo_img {
+      width: 70px;
+      filter: drop-shadow(3px 3px 1px $mainBGcolor);
+      @include tablet {
+        width: 80px;
+      }
+    }
+    h4 {
+      font-size: 1.6rem;
+      filter: drop-shadow(3px 3px 1px rgb(0, 0, 0));
+      @include tablet {
+        font-size: 3.6rem;
+      }
+    }
+  }
+
+  input {
+    width: 80px;
+    border: none;
+    outline: none;
+    padding: 5px 0 5px 10px;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+
+  .hamburgerIcon {
+    color: $textColor;
+    font-size: 2.5rem;
+    cursor: pointer;
+    filter: drop-shadow(3px 3px 1px rgb(0, 0, 0));
+    @include tablet {
+      font-size: 3rem;
+    }
+  }
+}

@@ -1,0 +1,111 @@
+.SingleDrinkModal {
+  padding: 0 5px;
+  @include size(100vw, 100vh);
+  @include flex_setting(row, center, center, 10px);
+
+  .leftBtn,
+  .rightBtn {
+    font-size: 2rem;
+    color: $textColor;
+    transition: transform $timeMedium;
+    filter: drop-shadow(3px 3px 1px rgb(0, 0, 0));
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  .disable {
+    opacity: 0;
+  }
+  .overlay {
+    position: relative;
+    @include size(350px, 650px);
+    .firstRow {
+      height: 50%;
+      position: relative;
+      img {
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+        object-fit: cover;
+        @include size(100%);
+      }
+      .icons {
+        background-color: transparent;
+        border-radius: 100%;
+        box-shadow: inset 3px 2px 10px $borderCardColor;
+        margin: 5px;
+        padding: 5px;
+        position: absolute;
+        .crossIcon {
+          filter: drop-shadow(3px 3px 1px rgb(0, 0, 0));
+          cursor: pointer;
+          color: $textColor;
+          font-size: 1.5rem;
+          text-align: center;
+          font-weight: $boldText;
+          &:hover {
+            color: $textColor;
+          }
+        }
+
+        &:hover {
+          color: white;
+          background-color: $mainBGcolor;
+        }
+      }
+    }
+
+    .secondRow {
+      color: $textColor;
+      padding: $boxmodelSingleValue;
+      border-radius: 16px;
+      position: absolute;
+      bottom: 0%;
+      background-color: $mainBGcolor;
+      @include size(100%, 55%);
+      .infoBox {
+        padding: calc($boxmodelSingleValue / 2);
+        text-align: center;
+        hr {
+          margin: calc($boxmodelSingleValue / 2);
+        }
+
+        p {
+          font-size: 1rem;
+        }
+      }
+      .thirdRow {
+        padding: calc($boxmodelSingleValue / 2);
+        font-size: 1.2rem;
+        ul {
+          overflow-x: auto;
+          list-style: none;
+          scroll-behavior: smooth;
+          @include flex_setting(row, flex-start, flex-start, 5px);
+          li {
+            width: 120px;
+            text-align: center;
+            img {
+              width: 80px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  @include size(6px);
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: $heroBGColor;
+  box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.484);
+}
+
+::-webkit-scrollbar-thumb {
+  border-top-right-radius: 2px;
+  background: $heroTextColor;
+}

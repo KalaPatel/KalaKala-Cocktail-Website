@@ -1,0 +1,53 @@
+.HamburgerMenu {
+  width: 130px;
+  right: 15px;
+  top: 65px;
+  position: fixed;
+  background-color: $textColor;
+  border-radius: 3px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.603);
+  ul {
+    padding: $boxmodelSingleValue;
+    font-size: 0.9rem;
+    list-style: none;
+    @include flex_setting(column, center, center, 10px);
+    cursor: pointer;
+
+    li {
+      font-size: 1.3rem;
+      transition: all $timeFast;
+      padding: 5px;
+      &:hover {
+        transform: scale(1.1);
+        text-decoration: underline;
+        box-shadow: 3px 3px 2px $shadowBlack;
+        background-color: $mainBGcolor;
+        color: $textColor;
+      }
+    }
+  }
+}
+
+.show {
+  animation-name: openMenu;
+  animation-direction: alternate;
+  transition: all $timeMedium linear;
+  animation-duration: $timeSlow;
+}
+
+.hide {
+  opacity: 0 !important;
+  animation-name: openMenu;
+  animation-direction: reverse;
+  transition: all $timeMedium linear;
+  animation-duration: $timeSlow;
+}
+
+@keyframes openMenu {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

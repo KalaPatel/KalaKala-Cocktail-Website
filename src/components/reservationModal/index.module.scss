@@ -1,0 +1,80 @@
+.ReservationModal {
+  @include flex_setting(row, center, center);
+  top: 0;
+  position: fixed;
+  @include size(100vw, 100vh);
+  background-color: $shadowAlpha;
+
+  .overlay {
+    @include flex_setting(row, center, center);
+    top: 0;
+    position: fixed;
+    cursor: pointer;
+    @include size(100vw, 100vh);
+    background-color: $shadowAlpha;
+  }
+
+  .wrapper {
+    @include flex_setting(row, center, center);
+    z-index: 1;
+    @include size(300px, 400px);
+    background-color: aliceblue;
+    background-image: url("https://images.unsplash.com/photo-1540224769541-7e6e20a42330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80");
+    box-shadow: 2px 2px 4px $shadowBlack;
+    border-radius: 8px;
+    @include tablet {
+      @include size(400px, 500px);
+    }
+    .form {
+      @include flex_setting(column, flex-start, flex-start, 20px);
+      input {
+        box-shadow: 2px 2px 4px rgb(49, 49, 49);
+        border: none;
+        cursor: pointer;
+        outline: none;
+        padding: 10px 20px;
+        width: 200px;
+        border-radius: 6px;
+        @include tablet {
+          width: 260px;
+        }
+      }
+      .submitBtn {
+        width: 100px;
+        margin: 0 auto;
+        font-weight: $boldText;
+        &:hover {
+          box-shadow: inset 1px 1px 2px $shadowBlack;
+        }
+      }
+      @include tablet {
+        gap: 35px;
+      }
+    }
+  }
+}
+
+.showModal {
+  animation-name: openModal;
+  animation-direction: alternate;
+  transition: all $timeMedium linear;
+}
+
+.hideModal {
+  z-index: -2;
+  opacity: 0 !important;
+  animation-name: openModal;
+  animation-direction: reverse;
+  transition: all $timeMedium linear;
+}
+
+@keyframes openModal {
+  0% {
+    z-index: -1;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    z-index: 1;
+  }
+}
